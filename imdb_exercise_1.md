@@ -11,6 +11,6 @@ Using Requests and Beautiful Soup, can you pull out:
 - The summary description text underneath the title
 - The rating (number of stars) the film received
 
-Be sure to check the [requests]: http://docs.python-requests.org/en/master/' and
-[BeautifulSoup]: https://www.crummy.com/software/BeautifulSoup/bs4/doc/ documentation to view the syntax if you need
+Be sure to check the [requests](http://docs.python-requests.org/en/master/) and
+[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) documentation to view the syntax if you need
 it.
