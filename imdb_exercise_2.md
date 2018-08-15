@@ -138,8 +138,8 @@ def create_films_csv(films):
 ### Can you update our `imdb_scraper.py` file above so that it does the following:
 
 - Get the film stats from a list of URLs (Don't forget: `import time` and use `time.delay(5)` to space out your requests)
-- Add those film stats to a list that we can pass to `create_films_csv`
-- Write all of the film stats to a csv once we are done with all of the URLs (don't forget `import csv`)
+- Add those film stats to a new list that we can pass to `create_films_csv` when we are done with all the URLs
+- Write all of the film stats to a csv (don't forget `import csv`)
 
 
 
