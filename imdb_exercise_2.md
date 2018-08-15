@@ -5,12 +5,10 @@ Then, we'll make it output to a CSV!
 
 ## Creating a file
 
-Go to your command line terminal. (If you have a python shell open, type `quit()` to exit, or open a new terminal window)
+Make a new file called `imdb_scraper.py`. You can do this in command line by typing `touch imdb_scraper.py`
 
-In your command line terminal, type `touch imdb_scraper.py` to create a new python file named `imdb_scraper`.
-
-We’ll eventually be able to run this script by typing `python imdb_scraper.py` in command line.
-But first we need to add our code to it.
+When we are in the same directory as the file, we’ll be able to run this script by typing `python imdb_scraper.py` in command line.
+But first we need to add our code.
 
 Type `open imdb_scraper.py` (or use the text editor of your choice) to edit the file.
 
