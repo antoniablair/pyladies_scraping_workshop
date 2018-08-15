@@ -13,7 +13,9 @@ But first we need to add our code to it.
 
 Type `open imdb_scraper.py` (or use the text editor of your choice) to edit the file.
 
-Here is some boilerplate python script code.
+## Make a basic python script
+
+Here is some boilerplate python code.
 
 ```
 import requests
@@ -26,18 +28,46 @@ def get_film_stats(url):
 
 
 def main():
-    urls = ['https://www.imdb.com/title/tt0451279']
+    url = 'https://www.imdb.com/title/tt0451279'
 
-    for url in urls:
-        get_film_stats('https://www.imdb.com/title/tt0451279')
+    get_film_stats(url)
 
 
 if __name__ == "__main__":
     main()
 ```
 
-Let's update that function to get our film information from IMDB and return a dictionary of film stats.
-Then we'll print the dictionary in our main function.
+Let's update our `get_film_stats` function to get our film information from IMDB and return a dictionary of film stats.
+
+```
+def get_film_stats(url):
+    film_dictionary = {}
+
+    r = requests.get('https://www.imdb.com/title/tt0451279/')
+    soup = BeautifulSoup(r.text, 'html.parser')
+
+    title = soup.h1.get_text()
+    summary = soup.find('div', class_='summary_text').get_text()
+    rating = soup.find('span', itemprop='ratingValue').get_text()
+
+    film_dictionary['title'] = title
+    film_dictionary['summary'] = summary
+    film_dictionary['rating'] = rating
+
+    return film_dictionary
+```
+
+Then we'll update our `main()` method to get and print the dictionary.
+
+```
+def main():
+    url = 'https://www.imdb.com/title/tt0451279'
+
+    film_stats = get_film_stats(url)
+    print(film_stats)
+```
+
+The file should now look like this:
 
 ```
 import requests
@@ -70,6 +100,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## Try running the file
 
 Save the file and try running it from the command line by typing `python imdb_scraper.py`
 
