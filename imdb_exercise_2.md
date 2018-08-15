@@ -74,6 +74,8 @@ takes some film stats.
 
 ```
 def create_film_stats_csv(films):
+    # write to a csv called film_stats.csv
+
     with open("film_stats.csv", "a") as f:
     writer = csv.writer(f)
     writer.writerow(['title', 'summary', 'rating']) # create the titles of the csv columns
@@ -83,11 +85,11 @@ def create_film_stats_csv(films):
         writer.writerow([[film['title'], film['summary'], film['rating']])
 ```
 
-Can you update our file above so that it does the following:
+Can you update our `imdb_scraper.py` file above so that it does the following:
 
 - Returns a dictionary of film stats each time we run `get_film_stats`, then adds those film_stats to a list
-- Gets the stats from more than one URL (Don't forget: use `time.delay(5)` to space out your requests)
-- Writes to a csv once we are done with all of the URLs
+- Gets the stats from more than one URL (Don't forget: `import time` and use `time.delay(5)` to space out your requests)
+- Writes to a csv once it is done with all of the URLs
 
 
 
