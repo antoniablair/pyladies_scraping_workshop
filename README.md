@@ -1,4 +1,4 @@
-# Intro to Webscraping with PyLadies
+# Intro to Web Scraping with PyLadies
 
 ### Description
 
