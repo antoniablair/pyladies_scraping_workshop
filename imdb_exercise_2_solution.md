@@ -60,17 +60,18 @@ if __name__ == "__main__":
 
 ```
 
-## Wait a sec, what if I don't want a delay I scrape the first URL?
+## What if I don't want to wait 5 seconds when I scrape the first URL?
 
-We want to skip the time delay the first time we run `for url in urls`. The first item in the list would have an index
-of 0.
+Ideally, we want to skip the time delay the first time we run `for url in urls`, but have a delay for each additional URL.
+
+The first item in the our list of URLs would have an index of 0. So that's exactly when we want to skip the delay.
 
 We can use python's `enumerate` function to cycle through a list while also keeping track of the index number.
 
 ```
-for num, url in enumerate(urls):
-    if num != 0:
-        time.sleep(5) # add a delay in our requests
+for index, url in enumerate(urls):
+    if index != 0:
+        time.sleep(5) # add a delay in our requests if not the first URL
     film = get_film_stats(url)
     films.append(film)
 ```
