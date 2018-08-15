@@ -1,4 +1,4 @@
-# IMDB Exercise 1 - Potential Solution
+# IMDB Exercise 1 - Solution
 
 ```
 import requests

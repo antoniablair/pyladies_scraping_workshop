@@ -1,4 +1,4 @@
-# IMDB Exercise 2 - Potential Solution
+# IMDB Exercise 2 - Solution
 
 ```
 import csv, requests, time
@@ -63,3 +63,4 @@ if __name__ == "__main__":
 
 - Add error handling - if the request parsing BeautifulSoup, or creating file fails
 - Make your script process the 'related films' on these web pages too
+- Add the current date to each csv's title so we can run the script without adding the old csv
