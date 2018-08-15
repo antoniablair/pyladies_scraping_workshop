@@ -27,4 +27,7 @@ You will need access to a command line prompt and to install the following Pytho
 [requests](http://docs.python-requests.org/en/master/) and
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
+### Contact info
+[antoniablair@gmail.com](mailto:antoniablair@gmail.com)
+
 
