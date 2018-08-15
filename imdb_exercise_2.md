@@ -106,9 +106,13 @@ Save the file and try running it from the command line by typing `python imdb_sc
 
 You should still see it print to the screen, but in dictionary format!
 
+```
+{'title': 'Wonder Woman\xa0(2017) ', 'summary': '\n                    When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny.\n            ', 'rating': '7.5'}
+```
+
 ## Make it save to a csv instead of printing
 
-In python, we can import the `csv` module to read or write to a CSV (comma separated value) file.
+In python, we can import the csv module with `import csv` to read or write to a CSV (comma separated value) file.
 
 We can write to a new csv file (and create that file if it does not exist) with the following function that
 takes a list of film dictionary objects.
@@ -123,6 +127,7 @@ def create_films_csv(films):
 
         for film in films:
             # add the film's title, summary, rating to the csv
+
             title = film['title'].encode('utf-8')
             summary = film['summary'].encode('utf-8')
             rating = film['rating'].encode('utf-8')
@@ -134,7 +139,7 @@ def create_films_csv(films):
 
 - Get the film stats from more than one URL (Don't forget: `import time` and use `time.delay(5)` to space out your requests)
 - Add the film_stats dictionary to a list each time we get them from a new film
-- Write all of the film stats to a csv once we are done with all of the URLs
+- `import csv`  and write all of the film stats to a csv once we are done with all of the URLs
 
 
 
