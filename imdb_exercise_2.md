@@ -38,24 +38,23 @@ if __name__ == "__main__":
 
 ## Get our film information
 
-Go ahead and update the `get_film_stats` function above to get our film information from IMDB and return a dictionary of film stats.
+Go ahead and update the `get_film_stats` function above to get our film information from IMDB and return a dictionary with the film's details.
 
 ```
 def get_film_stats(url):
-    film_dictionary = {}
-
-    r = requests.get('https://www.imdb.com/title/tt0451279/')
-    soup = BeautifulSoup(r.text, 'html.parser')
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "html.parser")
+    film = {}
 
     title = soup.h1.get_text()
-    summary = soup.find('div', class_='summary_text').get_text()
+    summary_text = soup.find('div', class_='summary_text').get_text()
     rating = soup.find('span', itemprop='ratingValue').get_text()
 
-    film_dictionary['title'] = title
-    film_dictionary['summary'] = summary
-    film_dictionary['rating'] = rating
+    film['title'] = title
+    film['summary'] = summary_text
+    film['rating'] = rating
 
-    return film_dictionary
+    return film
 ```
 
 Then we'll update our `main()` method to get and print the dictionary.
@@ -64,8 +63,8 @@ Then we'll update our `main()` method to get and print the dictionary.
 def main():
     url = 'https://www.imdb.com/title/tt0451279'
 
-    film_stats = get_film_stats(url)
-    print(film_stats)
+    film = get_film_stats(url)
+    print(film)
 ```
 
 The file should now look like this:
@@ -75,27 +74,26 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_film_stats(url):
-    film_dictionary = {}
-
-    r = requests.get('https://www.imdb.com/title/tt0451279/')
+    r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
+    film = {}
 
     title = soup.h1.get_text()
-    summary = soup.find('div', class_='summary_text').get_text()
+    summary_text = soup.find('div', class_='summary_text').get_text()
     rating = soup.find('span', itemprop='ratingValue').get_text()
 
-    film_dictionary['title'] = title
-    film_dictionary['summary'] = summary
-    film_dictionary['rating'] = rating
+    film['title'] = title
+    film['summary'] = summary_text
+    film['rating'] = rating
 
-    return film_dictionary
+    return film
 
 
 def main():
     url = 'https://www.imdb.com/title/tt0451279'
 
-    film_stats = get_film_stats(url)
-    print(film_stats)
+    film = get_film_stats(url)
+    print(film)
 
 
 if __name__ == "__main__":
@@ -106,26 +104,30 @@ if __name__ == "__main__":
 
 Save the file and try running it from the command line by typing `python imdb_scraper.py`
 
-You should still see it print to the screen!
+You should still see it print to the screen, but in dictionary format!
 
 ## Make it save to a csv instead of printing
 
 In python, we can import the `csv` module to read or write to a CSV (comma separated value) file.
 
 We can write to a new csv file (and create that file if it does not exist) with the following function that
-takes a list of dictionary objects of films.
+takes a list of film dictionary objects.
 
 ```
-def create_film_stats_csv(films):
+def create_films_csv(films):
     # write to a csv called film_stats.csv
 
     with open("film_stats.csv", "a") as f:
-    writer = csv.writer(f)
-    writer.writerow(['title', 'summary', 'rating']) # create the csv column titles
+        writer = csv.writer(f)
+        writer.writerow(['title', 'summary', 'rating']) # create the csv column titles
 
-    for film in films:
-        # add the film's title, summary, rating to the csv
-        writer.writerow([[film['title'], film['summary'], film['rating']])
+        for film in films:
+            # add the film's title, summary, rating to the csv
+            title = film['title'].encode('utf-8')
+            summary = film['summary'].encode('utf-8')
+            rating = film['rating'].encode('utf-8')
+
+            writer.writerow([title, summary, rating])
 ```
 
 ### Can you update our `imdb_scraper.py` file above so that it does the following:

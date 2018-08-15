@@ -7,47 +7,59 @@ from bs4 import BeautifulSoup
 
 def get_film_stats(url):
     r = requests.get(url)
-    soup = BeautifulSoup(r.text, "html.parser")
-    film_dictionary = {}
+    soup = BeautifulSoup(r.text, 'html.parser')
+    film = {}
 
     title = soup.h1.get_text()
     summary_text = soup.find('div', class_='summary_text').get_text()
     rating = soup.find('span', itemprop='ratingValue').get_text()
 
-    print(title)
+    print(title) # you may want to print something as you process each film
 
-    film_dictionary['title'] = title
-    film_dictionary['summary'] = summary_text
-    film_dictionary['rating'] = rating
+    film['title'] = title
+    film['summary'] = summary_text
+    film['rating'] = rating
 
-    return film_dictionary
+    return film
+
+
+def create_films_csv(films):
+    # write to a csv called film_stats.csv
+
+    with open("film_stats.csv", "a") as f:
+        writer = csv.writer(f)
+        writer.writerow(['title', 'summary', 'rating']) # create the csv column titles
+
+        for film in films:
+            # add the film's title, summary, rating to the csv
+
+            title = film['title'].encode('utf-8')
+            summary = film['summary'].encode('utf-8')
+            rating = film['rating'].encode('utf-8')
+
+            writer.writerow([title, summary, rating])
 
 
 def main():
-    urls = ['https://www.imdb.com/title/tt0451279/', 'https://www.imdb.com/title/tt5788792/?ref_=nv_sr_1', 'https://www.imdb.com/title/tt2372162/']
+    urls = ['https://www.imdb.com/title/tt0451279/', 'https://www.imdb.com/title/tt5788792/']
     films = []
 
     for url in urls:
         time.sleep(5) # add a delay in our requests
-        film_stats = get_film_stats(url)
-        films.append(film_stats)
+        film = get_film_stats(url)
+        films.append(film)
 
-    with open("film_stats.csv", "a") as f:
-        writer = csv.writer(f)
-        writer.writerow(['title', 'summary', 'rating'])
-
-        for film in films:
-            writer.writerow([film['title'], film['summary'], film['rating']])
+    create_films_csv(films)
 
     print('Done processing film URLs.')
 
 
 if __name__ == "__main__":
-    # the script is being run directly, so run the main() function
     main()
+
 ```
 
 ## What might you want to work on next?
 
-- Add error handling - if the request fails or parsing BeautifulSoup fails
+- Add error handling - if the request parsing BeautifulSoup, or creating file fails
 - Make your script process the 'related films' on these web pages too
