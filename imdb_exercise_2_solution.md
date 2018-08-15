@@ -78,6 +78,6 @@ for index, url in enumerate(urls):
 
 ## What might you want to work on next?
 
-- Add error handling - if the request parsing BeautifulSoup, or creating file fails
+- Add error handling - if the request, parsing BeautifulSoup, or creating the file fails
 - Make your script process the 'related films' on these web pages too
 - Add the current date to each csv's title so we can run the script without adding the old csv
