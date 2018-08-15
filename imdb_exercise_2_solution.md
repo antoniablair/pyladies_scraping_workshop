@@ -49,6 +49,7 @@ def main():
         film = get_film_stats(url)
         films.append(film)
 
+
     create_films_csv(films)
 
     print('Done processing film URLs.')
@@ -57,6 +58,21 @@ def main():
 if __name__ == "__main__":
     main()
 
+```
+
+## Wait a sec, what if I don't want a delay I scrape the first URL?
+
+We want to skip the time delay the first time we run `for url in urls`. The first item in the list would have an index
+of 0.
+
+We can use python's `enumerate` function to cycle through a list while also keeping track of the index number.
+
+```
+for num, url in enumerate(urls):
+    if num != 0:
+        time.sleep(5) # add a delay in our requests
+    film = get_film_stats(url)
+    films.append(film)
 ```
 
 ## What might you want to work on next?
