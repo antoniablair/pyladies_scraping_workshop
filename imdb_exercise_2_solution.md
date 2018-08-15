@@ -33,11 +33,11 @@ def main():
         films.append(film_stats)
 
     with open("film_stats.csv", "a") as f:
-        writeFile = csv.writer(f)
-        writeFile.writerow(['title', 'summary', 'rating'])
+        writer = csv.writer(f)
+        writer.writerow(['title', 'summary', 'rating'])
 
         for film in films:
-            writeFile.writerow([film['title'], film['summary'], film['rating']])
+            writer.writerow([film['title'], film['summary'], film['rating']])
 
     print('Done processing film URLs.')
 

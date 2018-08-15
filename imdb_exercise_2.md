@@ -123,7 +123,7 @@ def create_film_stats_csv(films):
 
     with open("film_stats.csv", "a") as f:
     writer = csv.writer(f)
-    writer.writerow(['title', 'summary', 'rating']) # create the titles of the csv columns
+    writer.writerow(['title', 'summary', 'rating']) # create the csv column titles
 
     for film in films:
         # add the film's title, summary, rating to the csv
