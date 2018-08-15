@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 r = requests.get('https://www.imdb.com/title/tt0451279/')
+soup = BeautifulSoup(r.text, 'html.parser')
 
 title = soup.h1.get_text()
 summary = soup.find('div', class_='summary_text').get_text()
