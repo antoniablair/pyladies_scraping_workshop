@@ -115,7 +115,7 @@ You should still see it print to the screen!
 In python, we can import the `csv` module to read or write to a CSV (comma separated value) file.
 
 We can write to a new csv file (and create that file if it does not exist) with the following function that
-takes some film stats.
+takes a list of dictionary objects of films.
 
 ```
 def create_film_stats_csv(films):
