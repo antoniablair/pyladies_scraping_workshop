@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
 Ideally, we want to skip the time delay the first time we run `for url in urls`, but have a delay for each additional URL.
 
-The first item in the our list of URLs would have an index of 0. So that's exactly when we want to skip the delay.
+The first item in the our list has an index of 0. So that's exactly when we want to skip the delay.
 
 We can use python's `enumerate` function to cycle through a list while also keeping track of the index number.
 
