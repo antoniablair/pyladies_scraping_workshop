@@ -1,4 +1,6 @@
-# Intro to Web Scraping with PyLadies
+# Intro to Web Scraping with Python
+
+Materials for a Pyladies workshop.
 
 ### Description
 
@@ -24,3 +26,5 @@ You will need access to a command line prompt and to install the following Pytho
 
 [requests](http://docs.python-requests.org/en/master/) and
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+
