@@ -1,8 +1,8 @@
 # IMDB Exercise 2
 
-## Let's take our scraping code and put it in a file that we can call from the command line.
+Let's take our scraping code and put it in a file that we can call from the command line.
 
-### Creating a file
+## Creating a file
 
 Go to your command line terminal. (If you have a python shell open, type `quit()` to exit, or open a new terminal window)
 
@@ -75,7 +75,7 @@ Save the file and try running it from the command line by typing `python imdb_sc
 
 You should still see it print to the screen!
 
-### Make it save to a csv instead of printing
+## Make it save to a csv instead of printing
 
 In python, we can import the `csv` module to read or write to a CSV (comma separated value) file.
 
@@ -95,7 +95,7 @@ def create_film_stats_csv(films):
         writer.writerow([[film['title'], film['summary'], film['rating']])
 ```
 
-Can you update our `imdb_scraper.py` file above so that it does the following:
+### Can you update our `imdb_scraper.py` file above so that it does the following:
 
 - Get the film stats from more than one URL (Don't forget: `import time` and use `time.delay(5)` to space out your requests)
 - Add the film_stats dictionary to a list each time we get them from a new film

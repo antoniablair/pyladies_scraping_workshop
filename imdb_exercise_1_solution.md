@@ -1,4 +1,4 @@
-# IMDB Exercise 1 - Solution
+# IMDB Exercise 1 - Potential Solution
 
 ```
 import requests
@@ -16,4 +16,5 @@ print('Summary: {}'.format(summary))
 print('Rating: {}'.format(rating))
 ```
 
-Note: You may have different syntax, that's ok too! There are many ways to query a BeautifulSoup object.
+Note: You may have different syntax that works, that's ok too! There are many ways to query a BeautifulSoup object
+and write code.
