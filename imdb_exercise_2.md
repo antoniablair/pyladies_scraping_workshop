@@ -35,7 +35,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Let's update it to get our film information from IMDB.
+Let's update that function to get our film information from IMDB.
 
 ```
 import requests
@@ -63,9 +63,32 @@ if __name__ == "__main__":
 
 Save the file and try running it from the command line by typing `python imdb_scraper.py`
 
-You should still see the prints to the screen!
+You should still see it print to the screen!
 
 ### Make it save to a csv instead of printing
+
+In python, we can import the `csv` module to read or write to a CSV (comma separated value) file.
+
+We can write to a new csv file (and create that file if it does not exist) with the following function that
+takes some film stats.
+
+```
+def create_film_stats_csv(films):
+    with open("film_stats.csv", "a") as f:
+    writer = csv.writer(f)
+    writer.writerow(['title', 'summary', 'rating']) # create the titles of the csv columns
+
+    for film in films:
+        # add the film's title, summary, rating to the csv
+        writer.writerow([[film['title'], film['summary'], film['rating']])
+```
+
+Can you update our file above so that it does the following:
+
+- Returns a dictionary of film stats each time we run `get_film_stats`, then adds those film_stats to a list
+- Gets the stats from more than one URL (Don't forget: use `time.delay(5)` to space out your requests)
+- Writes to a csv once we are done with all of the URLs
+
 
 
 
