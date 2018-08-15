@@ -14,7 +14,7 @@ def get_film_stats(url):
     summary_text = soup.find('div', class_='summary_text').get_text()
     rating = soup.find('span', itemprop='ratingValue').get_text()
 
-    print(title) # you may want to print something as you process each film
+    print(title)
 
     film['title'] = title
     film['summary'] = summary_text
@@ -49,7 +49,6 @@ def main():
         film = get_film_stats(url)
         films.append(film)
 
-
     create_films_csv(films)
 
     print('Done processing film URLs.')
@@ -60,7 +59,7 @@ if __name__ == "__main__":
 
 ```
 
-## What if I don't want to wait 5 seconds when I scrape the first URL?
+## What if I don't want to wait a few seconds when I scrape the first URL?
 
 Ideally, we want to skip the time delay the first time we run `for url in urls`, but have a delay for each additional URL.
 
@@ -71,7 +70,7 @@ We can use python's `enumerate` function to cycle through a list while also keep
 ```
 for index, url in enumerate(urls):
     if index != 0:
-        time.sleep(5) # add a delay in our requests if not the first URL
+        time.sleep(5)
     film = get_film_stats(url)
     films.append(film)
 ```
