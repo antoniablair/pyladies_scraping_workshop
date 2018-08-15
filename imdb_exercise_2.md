@@ -1,6 +1,7 @@
 # IMDB Exercise 2
 
 Let's take our scraping code and put it in a file that we can call from the command line.
+Then, we'll make it output to a CSV!
 
 ## Creating a file
 
@@ -8,7 +9,7 @@ Go to your command line terminal. (If you have a python shell open, type `quit()
 
 In your command line terminal, type `touch imdb_scraper.py` to create a new python file named `imdb_scraper`.
 
-We’ll be able to run this script by typing `python imdb_scraper.py` in command line.
+We’ll eventually be able to run this script by typing `python imdb_scraper.py` in command line.
 But first we need to add our code to it.
 
 Type `open imdb_scraper.py` (or use the text editor of your choice) to edit the file.
@@ -37,7 +38,9 @@ if __name__ == "__main__":
     main()
 ```
 
-Let's update our `get_film_stats` function to get our film information from IMDB and return a dictionary of film stats.
+## Get our film information
+
+Go ahead and update the `get_film_stats` function above to get our film information from IMDB and return a dictionary of film stats.
 
 ```
 def get_film_stats(url):
